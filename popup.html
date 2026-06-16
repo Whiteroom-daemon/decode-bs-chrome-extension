@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* Importing Modern Web & Hacker Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+        :root {
+            --bg-color: #050508;
+            --card-glass: rgba(20, 20, 28, 0.75);
+            --neon-cyan: #00f3ff;
+            --neon-red: #ff003c;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            width: 420px;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* The Neon Background Glow Effect */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 50% 0%, rgba(255, 0, 60, 0.15), transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 25px; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 15px;
+        }
+
+        .title {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 24px; margin: 0; color: #fff;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+            letter-spacing: 2px;
+        }
+        .title span { 
+            color: var(--neon-red); 
+            text-shadow: 0 0 10px rgba(255, 0, 60, 0.5); 
+        }
+
+        .badge {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 11px; font-weight: bold; color: var(--neon-cyan);
+            background: rgba(0, 243, 255, 0.1);
+            padding: 5px 10px; border-radius: 4px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            text-transform: uppercase;
+        }
+
+        /* Cyberpunk Sliced Button */
+        .btn {
+            width: 100%;
+            background: linear-gradient(45deg, transparent 5%, var(--neon-red) 5%);
+            color: #fff; 
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 16px; font-weight: bold; text-transform: uppercase;
+            border: none; padding: 16px; cursor: pointer;
+            letter-spacing: 2px;
+            box-shadow: 0px 0px 15px rgba(255, 0, 60, 0.3);
+            transition: 0.3s;
+        }
+        .btn:hover { 
+            background: linear-gradient(45deg, transparent 5%, #ff3366 5%); 
+            box-shadow: 0px 0px 25px rgba(255, 0, 60, 0.6); 
+        }
+        .btn:disabled { 
+            background: #1a1a24; box-shadow: none; color: #475569; cursor: not-allowed; 
+        }
+
+        #dashboard { 
+            margin-top: 25px; display: flex; flex-direction: column; gap: 15px; 
+        }
+
+        /* Glassmorphism Cards */
+        .threat-card {
+            background: var(--card-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--neon-cyan);
+            padding: 16px; border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .threat-card:hover { 
+            transform: translateY(-2px); 
+            border-left-color: var(--neon-red); 
+        }
+
+        .threat-tag {
+            font-family: 'Share Tech Mono', monospace; font-size: 12px;
+            color: var(--neon-cyan); margin-bottom: 8px; text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .threat-msg { 
+            font-size: 14px; line-height: 1.5; color: var(--text-dim); 
+        }
+
+        .error-card { border-left-color: var(--neon-red); }
+        .error-card .threat-tag { color: var(--neon-red); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">DECODE<span>.BS</span></h1>
+        <div class="badge" id="statusBadge">SYS: READY</div>
+    </div>
+    
+    <button id="btn-run" class="btn">Execute Protocol</button>
+    <div id="dashboard"></div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
