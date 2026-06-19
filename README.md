@@ -9,7 +9,7 @@
 * **UI/UX Design:** Built with raw HTML/CSS. Features a "Cyber-Industrial" Dashboard with Glassmorphism elements, maintaining Golden Ratio (1.618) layout principles. 
 
 ### 🚀 How to Install & Run (Developer Mode)
-1. Clone this repository: `git clone https://github.com/YourUsername/decode-bs-chrome-extension.git`
+1. Clone this repository: `git clone https://github.com/Whiteroom-daemon/decode-bs-chrome-extension.git`
 2. Get your free API key from [Groq Cloud](https://console.groq.com/).
 3. Open `popup.js` and replace `"YOUR_API_KEY_HERE"` with your actual API key.
 4. Open Chrome and navigate to `chrome://extensions/`.
